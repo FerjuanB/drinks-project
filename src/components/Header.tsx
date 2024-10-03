@@ -8,7 +8,7 @@ export const Header = () => {
 
     const isHome = useMemo(()=> pathname === "/" ,[pathname])
   return (
-<header className="bg-slate-800">
+<header className="bg-header">
 <div className="mx-auto container px-5 py-16 ">
     <div className="flex justify-between items-center">
         <div>
