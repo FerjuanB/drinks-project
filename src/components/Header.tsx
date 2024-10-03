@@ -1,6 +1,12 @@
-import { NavLink } from "react-router-dom"
+import { useMemo } from "react"
+import { NavLink, useLocation } from "react-router-dom"
+import { SearchForm } from "./SearchForm"
 
 export const Header = () => {
+
+    const {pathname} = useLocation()
+
+    const isHome = useMemo(()=> pathname === "/" ,[pathname])
   return (
 <header className="bg-slate-800">
 <div className="mx-auto container px-5 py-16 ">
@@ -18,6 +24,9 @@ export const Header = () => {
             >Favoritos</NavLink>
         </nav>
     </div>
+    {isHome && (
+        <SearchForm/>
+    )}
 </div>
 </header>  )
 }
