@@ -4,7 +4,7 @@ export const Header = () => {
 <div className="mx-auto container px-5 py-16 ">
     <div className="flex justify-between items-center">
         <div>
-            <img src="/logo.svg" className="w-32" alt="" />
+            <img src="/logo.svg" className="w-32" alt="logo de Drinks" />
         </div>
         <nav>
 
