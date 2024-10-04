@@ -5,7 +5,7 @@ export const SearchForm = () => {
     >
         <div className="space-y-4">
             <label 
-            className="block text-white uppercase font-extrabold text-lg"
+            className="block text-white uppercase font-bold text-lg"
             htmlFor="ingredient">Nombre o Ingredientes</label>
             <input 
             id="ingredient"
@@ -17,7 +17,7 @@ export const SearchForm = () => {
         </div>    
         <div className="space-y-4">
             <label 
-            className="block text-white uppercase font-extrabold text-lg"
+            className="block text-white uppercase font-bold text-lg"
             htmlFor="ingredient">Categoria</label>
             <select 
             id="ingredient" 
