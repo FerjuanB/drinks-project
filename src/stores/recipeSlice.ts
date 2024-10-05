@@ -10,11 +10,11 @@ export type recipeSliceType = {
 }
 //de esta manera se crea un slice y luego hay que pasarlo al principal, es la base, se van creando todos los necesarios. 
 
-export const createRecipeSlice : StateCreator<recipeSliceType>= ()=>({
+export const createRecipeSlice : StateCreator<recipeSliceType>= (set)=>({
 categories:{
     drinks:[]
 },
-fetchCategories: async (set)=>{
+fetchCategories: async ()=>{
    const categories =  await getCategories()
    set({
     categories
