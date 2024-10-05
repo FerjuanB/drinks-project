@@ -1,4 +1,11 @@
+import { useEffect } from "react"
+import { useAppStore } from "../stores/useAppStore"
+
 export const SearchForm = () => {
+const fetchCategories = useAppStore((state)=>state.fetchCategories)
+  useEffect(()=>{
+    fetchCategories()
+  },[])
   return (
     <form 
     className="md:w-1/2 2xl:w-1/3 bg-orange-400 my-32 p-10 rounded-lg shadow space-y-6"
@@ -25,6 +32,7 @@ export const SearchForm = () => {
             className="p-3 w-full rounded-lg focus:outline-none"
             >
             <option value=""> Elegí uno</option>    
+            {}
             </select>
         </div>    
         <input type="submit" value="Buscar" 
