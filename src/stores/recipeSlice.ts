@@ -1,6 +1,6 @@
 import { StateCreator } from "zustand"
 import { getCategories, getRecipe } from "../services/RecipeService"
-import { Categories, Drinks, RecipeSearch } from "../types"
+import { Categories, Drink, Drinks, RecipeSearch } from "../types"
 
 
 
@@ -9,6 +9,7 @@ export type recipeSliceType = {
     drinks: Drinks
     fetchCategories: () => Promise<void>
     searchRecipe: (searchFilter: RecipeSearch) => Promise<void>
+    selectRecipe: (id : Drink['idDrink']) => Promise<void>
 }
 //de esta manera se crea un slice y luego hay que pasarlo al principal, es la base, se van creando todos los necesarios. 
 
@@ -30,6 +31,9 @@ searchRecipe: async (filter) =>{
     set({
         drinks
     })
+    },
+    selectRecipe: async (id)=>{
+        
     }
 
 })

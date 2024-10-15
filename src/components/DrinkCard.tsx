@@ -1,3 +1,4 @@
+import { useAppStore } from "../stores/useAppStore"
 import type { Drink } from "../types"
 
 type DrinkCardProps = {
@@ -6,6 +7,7 @@ type DrinkCardProps = {
 
 
 export const DrinkCard = ({drink} : DrinkCardProps) => {
+   const selectRecipe =  useAppStore((state)=> state.selectRecipe)
   return (
     <div className="border bg-slate-200 shadow-lg">
         <div className="overflow-hidden">
@@ -19,7 +21,8 @@ export const DrinkCard = ({drink} : DrinkCardProps) => {
                  {drink.strDrink}
              </h2>
              <button type="button"
-             className="cursor-pointer bg-orange-700 hover:bg-orange-900 text-white font-bold uppercase rounded-md mt-5 w-full p-3 text-lg">
+             className="cursor-pointer bg-orange-700 hover:bg-orange-900 text-white font-bold uppercase rounded-md mt-5 w-full p-3 text-lg"
+             onClick={()=> selectRecipe(drink.idDrink)}>
                 Ver Receta
              </button>
             </div>
