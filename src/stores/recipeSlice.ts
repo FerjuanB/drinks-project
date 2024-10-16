@@ -8,9 +8,11 @@ export type recipeSliceType = {
     categories: Categories
     drinks: Drinks
     selectedRecipe : Recipe
+    modal: boolean
     fetchCategories: () => Promise<void>
     searchRecipe: (searchFilter: RecipeSearch) => Promise<void>
     selectRecipe: (id : Drink['idDrink']) => Promise<void>
+    closeModal: ()=>void
 }
 //de esta manera se crea un slice y luego hay que pasarlo al principal, es la base, se van creando todos los necesarios. 
 
@@ -24,6 +26,7 @@ drinks:{
 selectedRecipe:{
     
 } as Recipe,
+modal:false,
 fetchCategories: async ()=>{
    const categories =  await getCategories()
    set({
@@ -39,8 +42,15 @@ searchRecipe: async (filter) =>{
     selectRecipe: async (id)=>{
         const recipe = await getRecipeById(id)
     set({
-        selectedRecipe : recipe
+        selectedRecipe : recipe,
+        modal:true
        })
+    },
+    closeModal:()=>{
+        set({
+            modal:false,
+            selectedRecipe:{} as Recipe
+        })
     }
 
 })
