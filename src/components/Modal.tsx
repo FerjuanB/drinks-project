@@ -7,6 +7,12 @@ export default function Modal() {
     const closeModal = useAppStore((state) => state.closeModal);
     const selectedRecipe = useAppStore((state) => state.selectedRecipe);
 
+    const renderIngredients = ()=> {
+       const ingredients :JSX.Element[] = []
+       
+        return  <p>hola...</p>
+    }
+
     return (
         <Transition appear show={modal} as={Fragment}>
             <Dialog as="div" className="relative z-10" onClose={closeModal}>
@@ -41,6 +47,7 @@ export default function Modal() {
                                 <Dialog.Title as="h3" className="text-gray-900 text-2xl font-extrabold my-5">
                                     Ingredientes y Cantidades
                                 </Dialog.Title>
+                               {renderIngredients()}
                                 <Dialog.Title as="h3" className="text-gray-900 text-2xl font-extrabold my-5">
                                     Instrucciones
                                 </Dialog.Title>
