@@ -7,6 +7,7 @@ export default function Modal() {
     const modal = useAppStore((state) => state.modal);
     const closeModal = useAppStore((state) => state.closeModal);
     const selectedRecipe = useAppStore((state) => state.selectedRecipe);
+    const handleClickFavorite = useAppStore((state) => state.handleClickFavorite);
 
     const renderIngredients = ()=> {
        const ingredients :JSX.Element[] = []
@@ -70,7 +71,8 @@ export default function Modal() {
                                 Cerrar
                             </button>
                             <button type='button'
-                            className='w-full rounded bg-orange-600 text-white font-bold uppercase shadow p-2 hover:bg-orange-300  transition-all'>
+                            className='w-full rounded bg-orange-600 text-white font-bold uppercase shadow p-2 hover:bg-orange-300  transition-all'
+                            onClick={()=>handleClickFavorite(selectedRecipe)}>
                                 Agregar a Favoritos
                             </button>
                           </div>
