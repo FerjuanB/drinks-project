@@ -6,6 +6,7 @@ export type FavoritesSliceType = {
     favorites: Recipe[]
     handleClickFavorite:(recipe: Recipe) => void
     favExist: (id:Recipe['idDrink']) => boolean
+    loadFromStorage: () => void
 }
 
 export const createFavoritesSlice : StateCreator <FavoritesSliceType> = (set,get) => ({
@@ -20,8 +21,17 @@ export const createFavoritesSlice : StateCreator <FavoritesSliceType> = (set,get
                 favorites: [...state.favorites, recipe]
             }))
         }
+        localStorage.setItem('favorites', JSON.stringify(get().favorites))
     },
     favExist: (id)=>{
         return get().favorites.some(fav => fav.idDrink === id )
+    },
+    loadFromStorage: () =>{
+        const storedFavs = localStorage.getItem('favorites')
+        if(storedFavs){
+            set({
+                favorites:JSON.parse(storedFavs)
+            })
+        }
     }
 })
