@@ -1,5 +1,5 @@
 import { Dialog, Transition } from '@headlessui/react';
-import { Fragment } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { useAppStore } from '../stores/useAppStore';
 import { Recipe } from '../types';
 
@@ -9,7 +9,10 @@ export default function Modal() {
     const selectedRecipe = useAppStore((state) => state.selectedRecipe);
     const handleClickFavorite = useAppStore((state) => state.handleClickFavorite);
     const favExist = useAppStore((state) => state.favExist);
-
+    const [favChosen, setFavChosen] = useState(false)
+    useEffect(()=>{
+        favExist(selectedRecipe.idDrink)?setFavChosen(true):setFavChosen(false)
+    },[selectedRecipe])
     const renderIngredients = ()=> {
        const ingredients :JSX.Element[] = []
        for(let i = 1; i<=6; i++){
@@ -73,8 +76,10 @@ export default function Modal() {
                             </button>
                             <button type='button'
                             className='w-full rounded bg-orange-600 text-white font-bold uppercase shadow p-2 hover:bg-orange-300  transition-all'
-                            onClick={()=>handleClickFavorite(selectedRecipe)}>
-                                {favExist(selectedRecipe.idDrink)?"Eliminar Favorito":"Agregar a Favoritos"}
+                            onClick={()=>{handleClickFavorite(selectedRecipe);
+                                setFavChosen(!favChosen)}
+                            }>
+                                {!favChosen?"Agregar a Favoritos":"Eliminar Favorito"}
                             </button>
                           </div>
                             </Dialog.Panel>
