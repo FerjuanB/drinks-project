@@ -23,9 +23,7 @@ categories:{
 drinks:{
     drinks:[]
 },
-selectedRecipe:{
-    
-} as Recipe,
+selectedRecipe:{} as Recipe,
 modal:false,
 fetchCategories: async ()=>{
    const categories =  await getCategories()
