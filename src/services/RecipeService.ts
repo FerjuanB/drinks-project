@@ -1,5 +1,5 @@
 import axios from "axios"
-import { CategoriesAPIResponseSchema, DrinkAPIResponse, DrinksAPIResponse, RecipeAPIResponseSchema } from "../utils/RecipeSchema"
+import { CategoriesAPIResponseSchema, DrinksAPIResponse, RecipeAPIResponseSchema } from "../utils/RecipeSchema"
 import {Drink, RecipeSearch} from '../types'
 
 

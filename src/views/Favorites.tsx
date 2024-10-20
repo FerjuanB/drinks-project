@@ -2,7 +2,7 @@ import { useMemo } from "react"
 import { DrinkCard } from "../components/DrinkCard"
 import { useAppStore } from "../stores/useAppStore"
 
-export const Favorites = () => {
+const Favorites = () => {
 
   const favorites = useAppStore((state)=>state.favorites)
   const hasFavs = useMemo(()=>favorites.length,[favorites])
@@ -23,3 +23,5 @@ export const Favorites = () => {
     </>
   )
 }
+
+export default Favorites
