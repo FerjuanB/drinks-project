@@ -5,6 +5,7 @@ export const SearchForm = () => {
 const fetchCategories = useAppStore((state)=>state.fetchCategories)
 const {drinks} = useAppStore((state)=>state.categories)
 const recipe = useAppStore((state)=>state.searchRecipe)
+const showNotification = useAppStore((state)=>state.showNotification)
 
 const [searchFilter,setSearchFilter]=useState({
   ingredient:'',
@@ -26,7 +27,10 @@ setSearchFilter({
   const handleSubmit = (e:FormEvent<HTMLFormElement>) =>{
     e.preventDefault()
     if(Object.values(searchFilter).includes('')){
-      
+      showNotification({
+        text:"Todos los campos son obligatorios",
+        error:true
+      })
       return
     }
     recipe(searchFilter)

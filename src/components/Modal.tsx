@@ -79,7 +79,7 @@ export default function Modal() {
                             onClick={() => {
                                 handleClickFavorite(selectedRecipe);
                                 setFavChosen(!favChosen);
-                                setTimeout(() => closeModal(), 1000);
+                                setTimeout(() => closeModal(), 500);
                             }
                             }>
                                 {!favChosen?"Agregar a Favoritos":"Eliminar Favorito"}

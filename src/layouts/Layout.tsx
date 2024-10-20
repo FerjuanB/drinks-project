@@ -3,6 +3,7 @@ import { Header } from "../components/Header"
 import Modal from "../components/Modal"
 import { useEffect } from "react"
 import { useAppStore } from "../stores/useAppStore"
+import Notification from "../components/Notification"
 
 export const Layout = () => {
   const localFavs = useAppStore((store)=>store.loadFromStorage)
@@ -16,6 +17,7 @@ export const Layout = () => {
        <Outlet/>
     </main>
     <Modal/>
+    <Notification />
     </>
 )
 }
